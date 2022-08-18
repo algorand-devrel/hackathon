@@ -1,11 +1,11 @@
 const algosdk = require('algosdk');
 
-// const indexer_server = "https://testnet.algoexplorerapi.io/idx2/";
-// const indexer_port = "";
-// const indexer_token = "";
-const indexer_server = "https://academy-indexer.dev.aws.algodev.network";
+const indexer_server = "https://algoindexer.testnet.algoexplorerapi.io";
 const indexer_port = "";
-const indexer_token = "2f3203f21e738a1de6110eba6984f9d03e5a95d7a577b34616854064cf2c0e7b";
+const indexer_token = "";
+// const indexer_server = "https://academy-indexer.dev.aws.algodev.network";
+// const indexer_port = "";
+// const indexer_token = "2f3203f21e738a1de6110eba6984f9d03e5a95d7a577b34616854064cf2c0e7b";
 // Instantiate the indexer client wrapper
 let indexerClient = new algosdk.Indexer(indexer_token, indexer_server, indexer_port);
 
@@ -39,8 +39,7 @@ async function assetBalances() {
     console.log("");
     console.log("==> LOOKUP ASSET BALANCES");
     let assetIndex = 29340683;
-    let assetInfo = await indexerClient.lookupAssetBalances(assetIndex)
-        .do();
+    let assetInfo = await indexerClient.lookupAssetBalances(assetIndex).do();
     console.log("Information for Asset: " + JSON.stringify(assetInfo, undefined, 2));
 }
 

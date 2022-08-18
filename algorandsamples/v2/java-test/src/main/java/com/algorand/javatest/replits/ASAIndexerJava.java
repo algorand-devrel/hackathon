@@ -17,7 +17,10 @@ public class ASAIndexerJava {
 
     // utility function to connect to a node
     private Client connectToNetwork() {
-        final String INDEXER_API_ADDR = "https://testnet.algoexplorerapi.io/idx2/";
+        final String INDEXER_API_ADDR = "https://algoindexer.testnet.algoexplorerapi.io/";
+
+
+        
         final int INDEXER_API_PORT = 443;
         IndexerClient indexerClient = new IndexerClient(INDEXER_API_ADDR, INDEXER_API_PORT);
         return indexerClient;
@@ -66,7 +69,10 @@ public class ASAIndexerJava {
     public static void assetBalances(IndexerClient indexerClientInstance) throws Exception {
         System.out.println("");
         System.out.println("==> LOOKUP ASSET BALANCES");
+
         Long asset_id = Long.valueOf(29340683);
+
+
         // searhes for asset greater than currencyGreaterThan
         Response<AssetBalancesResponse> response = indexerClientInstance.lookupAssetBalances(asset_id)
             .execute();
